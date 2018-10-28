@@ -1,5 +1,6 @@
 require 'csv'
 
+# Recipes repository
 class Cookbook
   def initialize(csv_file_path)
     @csv_file_path = csv_file_path
@@ -38,7 +39,11 @@ class Cookbook
   def save_csv
     CSV.open(@csv_file_path, 'wb') do |csv|
       @recipes_list.each do |recipe|
-        csv << [recipe.name, recipe.description, recipe.prep_time, recipe.done, recipe.difficulty]
+        csv << [recipe.name,
+                recipe.description,
+                recipe.prep_time,
+                recipe.done,
+                recipe.difficulty]
       end
     end
   end

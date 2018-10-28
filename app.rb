@@ -48,11 +48,6 @@ end
 
 post '/results' do
   @results = ScrapeMarmiton.new(params[:keyword]).call
+  @keyword = params[:keyword]
   erb :results
-end
-
-post '/results/:index' do
-  recipe = @results[params[:index].to_i]
-  cookbook.add_recipe(recipe)
-  redirect to '/'
 end

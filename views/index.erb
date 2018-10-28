@@ -9,8 +9,8 @@
     <a href="/done/<%= index %>">
       <i class="<%= recipe.done ? 'far fa-check-square' : 'far fa-square' %>"></i>
     </a>
-    <%= recipe.name %> (<%= recipe.prep_time %>, <%= recipe.difficulty %>)
     <a href="/recipes/<%= index %>"><i class="fas fa-trash-alt"></i></a>
+    <%= recipe.name %> (<%= recipe.prep_time %>, <%= recipe.difficulty %>)
   </li>
 <% end %>
 
