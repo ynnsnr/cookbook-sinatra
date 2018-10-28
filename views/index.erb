@@ -1,0 +1,16 @@
+<h1>Welcome to your Cookbook</h1>
+
+<hr>
+
+<p>You currently have in your cookbook:</p>
+
+<% @recipes.each_with_index do |recipe, index| %>
+  <li>
+    <%= recipe.name %> (<%= recipe.prep_time %>, <%= recipe.difficulty %>)
+    <a href="/recipes/<%= index %>">Delete</a>
+  </li>
+<% end %>
+
+<br>
+
+<a href="/new">Add recipe</a>
