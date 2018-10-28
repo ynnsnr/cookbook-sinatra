@@ -6,11 +6,18 @@
 
 <% @recipes.each_with_index do |recipe, index| %>
   <li>
+    <a href="/done/<%= index %>">
+      <i class="<%= recipe.done ? 'far fa-check-square' : 'far fa-square' %>"></i>
+    </a>
     <%= recipe.name %> (<%= recipe.prep_time %>, <%= recipe.difficulty %>)
-    <a href="/recipes/<%= index %>">Delete</a>
+    <a href="/recipes/<%= index %>"><i class="fas fa-trash-alt"></i></a>
   </li>
 <% end %>
 
 <br>
 
 <a href="/new">Add recipe</a>
+
+<br>
+
+<a href="/import">Import a recipe</a>

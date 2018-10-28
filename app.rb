@@ -9,6 +9,7 @@ end
 
 require_relative 'cookbook'
 require_relative 'recipe'
+require_relative 'scrape_marmiton'
 
 csv_file = File.join(__dir__, 'recipes.csv')
 cookbook = Cookbook.new(csv_file)
@@ -36,11 +37,22 @@ get '/recipes/:index' do
   redirect to '/'
 end
 
-# get '/about' do
-#   erb :about
-# end
+get '/done/:index' do
+  cookbook.mark_as_done(params[:index].to_i)
+  redirect to '/'
+end
 
-# get '/team/:username' do
-#   puts params[:username]
-#   "The username is #{params[:username]}"
-# end
+get '/import' do
+  erb :import
+end
+
+post '/results' do
+  @results = ScrapeMarmiton.new(params[:keyword]).call
+  erb :results
+end
+
+post '/results/:index' do
+  recipe = @results[params[:index].to_i]
+  cookbook.add_recipe(recipe)
+  redirect to '/'
+end

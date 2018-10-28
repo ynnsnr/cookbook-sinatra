@@ -1,0 +1,8 @@
+<h1>Results</h1>
+
+<% @results.each_with_index do |recipe, index| %>
+  <li>
+    <%= recipe.name %> (<%= recipe.prep_time %>, <%= recipe.difficulty %>)
+    <a href="/results/<%= index %>"><i class="fas fa-plus-circle"></i></a>
+  </li>
+<% end %>
