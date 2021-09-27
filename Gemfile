@@ -6,4 +6,4 @@ gem 'pry-byebug'
 gem 'sinatra'
 gem 'sinatra-contrib'
 
-gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
+gem 'nokogiri', '~> 1.12'
